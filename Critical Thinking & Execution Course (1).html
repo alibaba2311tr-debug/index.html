@@ -1,0 +1,184 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Critical Thinking & Execution Course</title>
+<style>
+:root{--bg:#07070a;--fg:#f4f2ee;--mu:#8d8d93}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;background:var(--bg);color:var(--fg);font-family:Inter,"Helvetica Neue",Arial,sans-serif;overflow:hidden}
+body:before{content:"";position:fixed;inset:0;background:radial-gradient(560px circle at var(--x,50%) var(--y,35%),rgba(110,130,255,.15),transparent 70%),radial-gradient(800px circle at 100% 100%,rgba(150,90,255,.12),transparent 70%),radial-gradient(700px circle at 0 0,rgba(60,200,200,.07),transparent 70%);pointer-events:none}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.06;mix-blend-mode:overlay;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+#app{position:relative;z-index:1;height:100vh;height:100dvh;overflow-y:auto}
+.s{min-height:100%;display:flex;flex-direction:column;padding:max(20px,env(safe-area-inset-top)) 6vw max(20px,env(safe-area-inset-bottom));position:relative;animation:in .8s ease both}
+@keyframes in{from{opacity:0;transform:translateY(14px);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
+@keyframes w{from{width:0}}
+.bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:grayscale(1) brightness(.35);z-index:-1}
+.bar{position:fixed;top:0;left:0;height:2px;width:0;background:var(--fg);transition:width .6s;z-index:5}
+.top{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mu)}
+.mid{flex:1;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding:5vh 0;transition:filter .5s}
+.mid.q{justify-content:flex-start;overflow:visible;padding-top:8vh}
+.lk{filter:blur(16px);user-select:none;pointer-events:none}
+.ghost{position:absolute;left:-1vw;top:50%;transform:translateY(-55%);font-weight:800;font-size:clamp(100px,28vw,380px);letter-spacing:-.05em;line-height:.8;color:transparent;-webkit-text-stroke:1px #2d2d34;white-space:nowrap;pointer-events:none;user-select:none}
+.k{position:relative;font-size:11px;letter-spacing:.25em;color:var(--mu);margin-bottom:18px;text-transform:uppercase}
+h1{position:relative;font-size:clamp(38px,8.5vw,120px);font-weight:800;letter-spacing:-.04em;line-height:.98;max-width:15ch}
+h2{font-size:clamp(20px,3vw,32px);font-weight:600;line-height:1.35;letter-spacing:-.01em;max-width:34ch;margin-bottom:14px}
+.t{position:relative;max-width:46ch;margin-top:24px;color:#b9b9bf;line-height:1.65;font-size:clamp(14px,1.6vw,18px)}
+.t b{color:var(--fg);font-weight:600;border-bottom:1px solid #666}
+.t small{font-size:11px;color:#666}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.b{background:none;border:1px solid #555;color:var(--fg);padding:12px 20px;font:inherit;font-size:12px;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:.25s}
+.b:not(:disabled):hover,.b.on{background:var(--fg);color:#000}
+.b.f{background:var(--fg);color:#000}.b:disabled{opacity:.3;cursor:default}
+.o{display:flex;gap:16px;width:100%;text-align:left;background:none;border:1px solid #2c2c33;color:#cfcfd4;font:inherit;line-height:1.5;padding:16px 18px;margin-top:10px;cursor:pointer;transition:.2s;max-width:720px}
+.o:hover{border-color:#777}.o.on{border-color:#fff;background:#15151a;color:#fff}.o b{color:#666;font-weight:500}
+textarea,.in{width:100%;max-width:720px;background:transparent;border:1px solid #333;color:var(--fg);font:inherit;padding:14px;outline:0;line-height:1.5}
+textarea{min-height:200px;resize:vertical}.in{border:0;border-bottom:1px solid #555;padding:12px 0}
+.rt{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;max-width:720px}
+.r{display:flex;justify-content:space-between;font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin-top:20px}
+.tr{height:3px;background:#26262c;margin-top:8px;max-width:720px}.tr i{display:block;height:100%;background:var(--fg);animation:w 1.4s ease}
+.cert{position:relative;background:#fff;color:#15151a;padding:clamp(24px,6vw,64px);text-align:center;max-width:860px;margin:4vh auto;border:1px solid #d4d4d4;outline:1px solid #d4d4d4;outline-offset:-10px}
+.cid{position:absolute;right:22px;bottom:18px;font-size:9px;letter-spacing:.14em;color:#8a8a8a}
+.cert p{margin:12px auto;max-width:48ch;line-height:1.6;color:#333}
+.cert h3{font:italic 400 clamp(32px,7vw,64px) Georgia,serif;margin:18px 0}
+.cert .x{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#555}.cert small{display:block;margin-top:22px;font-size:11px;color:#666}
+.mid>*{position:relative;z-index:1}.mid>.ghost{position:absolute;z-index:0;opacity:.45}.mid>.vz{position:absolute;inset:0;z-index:0;pointer-events:none}
+.vz i{--h:220;position:absolute;display:block;translate:0 0;animation:fl 10s ease-in-out infinite alternate}
+.vz i:nth-child(2n){animation-duration:13s;animation-delay:-4s}
+@keyframes fl{to{translate:0 -2.4vmin}}
+.vz .o{aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,hsl(var(--h) 95% 70%/.9),hsl(var(--h) 90% 45%/.5) 42%,transparent 70%);filter:blur(10px)}
+.vz .g,.vz .p,.vz .l{background:linear-gradient(135deg,rgba(255,255,255,.17),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.2);box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 -8px 20px rgba(255,255,255,.04),0 24px 60px rgba(0,0,0,.55);-webkit-backdrop-filter:blur(18px) saturate(1.7);backdrop-filter:blur(18px) saturate(1.7)}
+.vz .g{aspect-ratio:1.4;border-radius:5vmin}.vz .p{aspect-ratio:4.5;border-radius:999px}.vz .l{aspect-ratio:1;border-radius:50%}
+.vz .r{aspect-ratio:1;border-radius:50%;border:1px solid rgba(255,255,255,.13)}
+.b{border-radius:999px;border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.06);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.o{border-radius:18px;border-color:rgba(255,255,255,.12);background:rgba(255,255,255,.04);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+textarea{border-radius:16px;border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.04)}
+.o.ok{border-color:#7fe3a0;background:rgba(127,227,160,.09);color:#fff}.o.no{border-color:#e27d7d;background:rgba(226,125,125,.09)}.o:disabled{cursor:default}
+.mid:has(.pq){overflow:visible;overflow-x:clip}
+.mid>.pw{position:absolute;z-index:0;right:-6%;bottom:0;width:min(78vw,520px);aspect-ratio:3/4;pointer-events:none}
+.pw:before{content:"";position:absolute;left:8%;top:6%;width:84%;aspect-ratio:1;border-radius:50%;border:clamp(4px,1vmin,9px) solid rgba(255,255,255,.9);box-shadow:0 0 40px rgba(255,255,255,.3),inset 0 0 30px rgba(255,255,255,.15);opacity:.5}
+.pw img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.15) brightness(.85);-webkit-mask-image:radial-gradient(closest-side,#000 60%,transparent 100%);mask-image:radial-gradient(closest-side,#000 60%,transparent 100%)}
+.hp .vz .g,.hp .vz .p{display:none}
+@media(max-width:700px){.mid>.pw{opacity:.5;right:-25%}}
+@media(max-width:700px){.vz{opacity:.6}}
+@media(min-width:700px){.rt{grid-template-columns:repeat(10,1fr)}}
+@media print{html,body,#app{height:auto;overflow:visible;background:#fff}body:before,body:after,.no,.bar{display:none!important}.cert{margin:0 auto}}
+</style></head><body><main id="app"></main>
+<script>
+/* ---- SETTINGS ---- */
+const CFG={ISSUER:"Your Name / Project Name",SUBMIT_URL:""}; // SUBMIT_URL: paste a Google Apps Script / Formspree URL to collect ratings & answers
+const CAT={CT:"Critical Thinking",RE:"Reasoning",DM:"Decision Making",EX:"Execution / Problem Solving"};
+const CAR={CT:["Research","Journalism & fact-checking","Data analysis","Science","Policy analysis"],RE:["Law","Engineering","Computer science","Mathematics","Philosophy"],DM:["Business & management","Economics","Finance","Public health","Strategy"],EX:["Operations","Product design","Consulting","Project management","Entrepreneurship"]};
+/* ---- COURSE (d = seconds, sums to 600). Optional img:"img/photo.jpg" adds a dark B&W background ---- */
+const SL=[
+{k:"Critical Thinking & Execution",g:"THINK",h:"Think before you believe.",t:["A silent 10-minute course. Read at your own pace, pause anytime, then see what you can do.",`<small>© ${CFG.ISSUER}. All rights reserved. Please do not copy or redistribute.</small>`],d:25},
+{k:"01 — The idea",g:"WHY",h:"Slow down for three seconds.",t:["Critical thinking isn't doubting everything. It's asking <b>better questions</b> before you decide what to believe or do.","Execution is the other half: turning a good decision into a <b>first small step</b>."],d:35},
+{k:"02 — Facts & assumptions",g:"FACT",h:"What's known, and what's assumed?",t:["A <b>fact</b> can be checked. An <b>opinion</b> is a judgment. An <b>assumption</b> is something you rely on without checking.","The key question: <b>what would have to be true for this to work?</b>"],d:40},
+{k:"Scenario",g:"ASSUME",h:"What would you do?",sc:{q:`Priya's exam starts at 7:30. She plans to leave at 7:00 and says, "I'll make it." Name two things that must be true for her plan to work.`,a:"The bus is on time. The trip really takes 30 minutes or less. She finds the room quickly. Once you see the assumptions, you can protect against them: leave at 6:45."},d:55},
+{k:"03 — Evidence",g:"PROOF",h:"Claims are cheap. Evidence isn't.",t:["Ask <b>who says so</b>, <b>how they know</b>, and <b>what else could explain it</b>.","Ice cream sales and sunburns rise together. Hot weather causes both. <b>Correlation isn't causation.</b>"],d:40},
+{k:"Scenario",g:"EVIDENCE",h:"What would you ask?",sc:{q:`An ad says: "9 out of 10 people felt more focused after FocusFizz!" What do you want to know before believing it?`,a:"Nine out of ten who? Compared to what: would water do the same? Was focus measured, or just self-reported? Who ran and paid for the survey? Not proven is not the same as false."},d:55},
+{k:"04 — Weak arguments",g:"LOGIC",h:"Does the conclusion follow?",t:["Watch for <b>attacking the person</b>, <b>false choices</b> (only two options), <b>popularity</b> (everyone does it) and <b>jumping to conclusions</b>.",`The trap: "If it rains, the match is cancelled. It was cancelled, so it rained." Other causes exist.`],d:40},
+{k:"05 — Bias",g:"BIAS",h:"Your brain takes shortcuts.",t:["<b>Confirmation</b>: you notice what agrees with you. <b>Anchoring</b>: the first number sticks. <b>Availability</b>: vivid feels common. <b>Sunk cost</b>: you stay because you've already invested.","Counter-move: <b>look for the best case against your own view</b>."],d:35},
+{k:"Scenario",g:"SUNK",h:"What would you do?",sc:{q:`You've watched four episodes of a show you dislike. A friend says: "Finish it, you've put in so much time." What do you do?`,a:"The four hours are gone either way. The only useful question: would I choose to spend the next hour on this? Past cost shouldn't steer future choices."},d:40},
+{k:"06 — Decisions",g:"CHOOSE",h:"Decide on purpose.",t:["List real <b>options</b>, not just the first one. Pick <b>criteria</b>: cost, time, risk, regret. Compare, and name the <b>trade-off</b>.","Easy to undo? <b>Move fast.</b> Hard to undo? <b>Slow down.</b>"],d:45},
+{k:"07 — Breaking it down",g:"SPLIT",h:"Big problems are small problems in disguise.",t:[`Define it specifically. Not "we're bad at teamwork" but "we missed 3 of 4 deadlines and tasks had no owner."`,"Then split it into <b>pieces</b> finishable in an hour or less, each with an <b>owner</b> and a <b>date</b>."],d:40},
+{k:"08 — Execution",g:"DO",h:"Thinking has a deadline.",t:["Overthinking feels like progress. It isn't. <b>Time-box</b> your planning, then do the <b>smallest next step</b>.","A <b>good-enough plan today</b> beats a perfect plan never. Act, check what happened, adjust."],d:40},
+{k:"Scenario",g:"ACT",h:"What would you do?",sc:{q:"Your team has two weeks for a project and hasn't started. Everyone is debating the perfect approach. What do you do in the next hour?",a:"Stop debating. State the goal in one sentence, split the work into tasks, assign owners and dates, and start the smallest task today. Schedule a midpoint review."},d:40},
+{k:"The process",g:"THINK",h:"Think. Decide. Do. Review.",t:["<b>T</b>arget the claim · <b>H</b>unt assumptions · <b>I</b>nspect evidence · <b>N</b>otice weak logic & bias · <b>K</b>now your decision. Then <b>execute</b>.","The assessment uses new situations. Apply the process; don't try to recall the examples."],d:45},
+{k:"Finished",g:"DONE",h:"Course complete.",t:["Next: 10 multiple-choice and 5 written questions. 100 marks, no timer."],d:25}];
+/* ---- ASSESSMENT: o[0] is the correct option (options are shuffled at runtime) ---- */
+const MC=[
+{c:"CT",q:`A manager says: "Sales dropped after we changed our logo, so the new logo hurt sales." What is the biggest weakness in this reasoning?`,o:[`Sales falling after the change doesn't show the logo caused it; the season, rivals or prices may have changed too.`,`Logos never affect sales.`,`The sales figures were probably recorded wrongly.`,`The manager isn't a trained designer.`]},
+{c:"CT",q:`Leo says: "The map says 20 minutes, so if I leave at 3:00 I'll be there at 3:20." Which hidden assumption is Leo making?`,o:[`The trip will go exactly as estimated: no delays and no extra time to park or walk.`,`The map is probably wrong.`,`Leo wants to arrive late.`,`3:20 is a bad time to arrive.`]},
+{c:"CT",q:`A researcher asks 300 people leaving a gym whether exercise is important. 96% say yes. She concludes: "96% of this town thinks exercise is important." What is the main problem?`,o:[`Gym-goers aren't a representative sample of the town.`,`300 is always too small a sample.`,`96% is too high to be believable.`,`People always lie in polls.`]},
+{c:"RE",q:`"If it rains, the match is cancelled. The match was cancelled. So it rained." Is this reasoning sound?`,o:[`No: a match can be cancelled for other reasons, so cancellation doesn't prove rain.`,`Yes, because the match was cancelled.`,`Yes, if it rained heavily.`,`No, because rain never cancels matches.`]},
+{c:"RE",q:`"Our app got 10,000 downloads right after an influencer's post, so influencer posts work." Which new fact would most weaken this argument?`,o:[`The app was also featured on the app store's front page that same day.`,`The influencer has many followers.`,`10,000 is a large number of downloads.`,`The influencer is very popular.`]},
+{c:"DM",q:`You score two laptops 1-10 on what matters to you. Weights: battery 50%, price 30%, portability 20%. Laptop P: battery 5, price 9, portability 8. Laptop Q: battery 9, price 5, portability 6. Which scores higher overall?`,o:[`Laptop Q`,`Laptop P`,`They tie`,`It can't be determined`]},
+{c:"DM",q:`After seeing news about a plane crash, Sam decides to drive 10 hours instead of taking a 90-minute flight. What should Sam do before deciding?`,o:[`Look up real risk data for each type of journey.`,`Drive, since vivid news means flying is risky.`,`Flip a coin.`,`Avoid travelling altogether.`]},
+{c:"EX",q:`A school club's attendance fell from 30 to 12. What is the best first step?`,o:[`Find out when attendance dropped and ask members why, before choosing a fix.`,`Cancel the club.`,`Order snacks for the next meeting.`,`Post more on social media.`]},
+{c:"EX",q:`A website got slow after three changes last week: new images, a new plugin, and a traffic spike. What is the best approach?`,o:[`Test the changes one at a time and measure speed after each.`,`Assume the plugin is the cause.`,`Buy faster hosting immediately.`,`Undo everything and never change anything again.`]},
+{c:"EX",q:`You have 60 minutes. Task P takes 40 min (value 6), Q takes 20 min (value 4), R takes 20 min (value 3). Which plan gives the most total value?`,o:[`P and Q`,`Q and R`,`P and R`,`All three`]}];
+/* r = rubric: [keyword pattern, marks]; marks per question sum to 10 */
+const SUB=[
+{c:"CT",q:`A café posts: "Since we launched our loyalty card, customer numbers rose 30%. The loyalty card works!" What would you want to know before believing this? Name at least one assumption being made.`,r:[[/season|other (factor|change|reason)|coincid|compar|control|else|weather|promotion|advert|holiday|event|competitor/i,3],[/how many|how long|sample|before|same period|last year|numbers|data|measure|track|time ?frame/i,3],[/caus|correlat|prove|because of|link/i,2],[/assum|taken for granted|presum|must be true/i,2]]},
+{c:"RE",q:`"Everyone in my class uses this study app and it's cheap, so it must work. Either you use it or you'll fall behind." Identify at least two weaknesses in this argument and explain how you would test whether the app works.`,r:[[/everyone|popular|crowd|bandwagon|most people|many people/i,3],[/either|false (choice|dilemma)|only two|other option|third|alternative/i,3],[/cheap|price|cost|not evidence|doesn.t (prove|mean)/i,2],[/test|compare|group|experiment|measure|grades|trial/i,2]]},
+{c:"DM",q:`You must choose between a well-paid internship you find boring and an unpaid project you're excited about. Walk through how you would decide, including your criteria, one trade-off, and one bias you would guard against.`,r:[[/criteri|priorit|weigh|matters|important|goal|factor/i,3],[/trade.?off|give up|sacrific|opportunity|downside|risk|cost/i,3],[/bias|sunk|anchor|confirmation|availability|emotion|bandwagon|hype/i,2],[/revers|undo|short.?term|long.?term|try|test|talk to|research|ask|regret/i,2]]},
+{c:"EX",q:`Your group project is due in two weeks and nothing has started. Everyone is overthinking and arguing. Describe exactly what you would do in the next 24 hours.`,r:[[/break|split|steps|tasks|list|outline|define|scope/i,3],[/owner|assign|responsib|deadline|who |date|schedule/i,3],[/first (step|action)|start (with|by)|smallest|today|tonight|small|quick|draft|rough/i,2],[/check.?in|review|progress|midpoint|update|meeting/i,2]]},
+{c:"EX",q:`You keep delaying a big goal because you want the perfect plan. Explain how you would turn thinking into action without just "trying harder".`,r:[[/good enough|perfect|iterat|improve|adjust|version|draft|prototype|test|experiment/i,3],[/small|tiny|first|step|break|chunk|minutes|today/i,3],[/time.?box|deadline|limit|cap|stop planning|schedule/i,2],[/feedback|review|track|measure|learn|reflect|check/i,2]]}];
+/* ---- STATE & HELPERS ---- */
+const $=document.getElementById("app"),S={i:0,el:0,paused:0,mode:"c",rv:{},mc:[],sub:[],q:0,id:Math.random().toString(36).slice(2,10)};
+const f=n=>String(n/60|0).padStart(2,"0")+":"+String(n%60).padStart(2,"0"),W=v=>v.trim().split(/\s+/).filter(Boolean).length,esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const h=x=>{$.innerHTML=x;$.scrollTop=0},$$=i=>document.getElementById(i);
+const hd=(a,b)=>`<div class="top"><span>${a}</span><span>${b}</span></div>`;
+function send(type,d){const r={type,session:S.id,time:new Date().toISOString(),...d};try{const L=JSON.parse(localStorage.getItem("think_log")||"[]");L.push(r);localStorage.setItem("think_log",JSON.stringify(L))}catch(e){}
+if(CFG.SUBMIT_URL)fetch(CFG.SUBMIT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify(r)}).catch(()=>{})}
+addEventListener("pointermove",e=>{document.body.style.setProperty("--x",e.clientX+"px");document.body.style.setProperty("--y",e.clientY+"px")});
+addEventListener("keydown",e=>{if(S.mode!="c")return;if(e.key=="ArrowRight"&&S.i<SL.length-1&&!(SL[S.i].pq&&S.pa[S.i]==null))go(1);if(e.key=="ArrowLeft"&&S.i>0)go(-1)});
+/* ---- GLASS VISUALS: one composition per slide. Shapes: o=glow orb, g=glass panel, p=glass pill, l=glass lens, r=ring. [kind,x%,y%,size(vmin),rotation,hue] ---- */
+const VZ=[
+[["o",76,45,60,0,225],["l",74,47,34],["r",76,45,52],["r",76,45,70]],
+[["o",78,40,50,0,265],["g",70,55,30,-10],["p",82,68,34,8]],
+[["o",75,50,55,0,200],["g",66,38,26,-6],["g",76,50,26,0],["g",86,62,26,6]],
+[["o",78,70,50,0,190],["g",74,38,34,0],["r",74,64,40],["p",74,60,44,0]],
+[["o",72,40,46,0,230],["o",84,60,40,0,330],["l",78,50,30],["r",78,50,50]],
+[["o",80,35,44,0,20],["g",70,52,32,-4],["l",86,64,22]],
+[["o",80,40,40,0,265],["g",66,40,28,-12],["g",78,52,28,12],["p",72,70,36,0]],
+[["o",76,50,56,0,330],["l",70,48,28],["l",84,56,20],["r",77,50,60]],
+[["o",78,56,48,0,20],["r",78,56,34],["r",78,56,52],["l",78,56,16]],
+[["o",74,45,50,0,190],["g",66,50,26,-8],["g",84,50,26,8],["p",75,72,30,0]],
+[["o",76,45,52,0,265],["g",66,36,18,0],["g",80,36,18,0],["g",66,56,18,0],["g",80,56,18,0]],
+[["o",78,50,54,0,225],["p",72,40,40,-20],["p",80,56,40,-20],["l",78,50,22]],
+[["o",76,50,48,0,20],["g",70,46,30,-6],["r",76,50,60],["p",82,70,30,10]],
+[["o",76,45,56,0,265],["r",76,45,34],["r",76,45,50],["r",76,45,68],["l",76,45,20]],
+[["o",76,50,60,0,160],["l",76,50,40],["r",76,50,56],["p",76,72,40,0]]];
+const vis=i=>`<div class="vz">${(VZ[i]||[]).map(([k,x,y,s,r,u])=>`<i class="${k}" style="left:${x}%;top:${y}%;width:${s}vmin;--h:${u||220};transform:translate(-50%,-50%) rotate(${r||0}deg)"></i>`).join("")}</div>`;
+/* ---- PHOTOS: put IMG black&white-friendly photos in an "img" folder named 1.jpg, 2.jpg ... (used in rotation; missing files are skipped) ---- */
+const IMG=8,pic=i=>`<div class="pw"><img src="img/${i%IMG+1}.jpg" alt="" onload="this.closest('.mid').classList.add('hp')" onerror="this.parentNode.remove()"></div>`;
+/* ---- PRACTICE PROBLEMS (o[0] is correct; options shuffle). Inserted into the course, must be answered to continue ---- */
+const PQ=(n,q,o,e,vi)=>({k:"Practice "+n,g:"TRY",h:"Your turn.",pq:{q,o,e},d:40,vi});
+SL.forEach((s,i)=>s.vi=i);
+SL.splice(12,0,PQ(5,`Your group is stuck debating how to start. What helps most right now?`,[`Pick the smallest useful task, give it an owner and a time, and start.`,`Keep debating until everyone agrees on the perfect plan.`,`Wait for one person to decide everything.`,`Split up and work with no plan at all.`],`Momentum beats perfection. A small step with an owner and a time creates feedback you can adjust.`,11));
+SL.splice(10,0,PQ(4,`You're choosing between two apartments. What is the most useful first step?`,[`Decide what matters most (rent, commute, space), then compare both on those criteria.`,`Pick the one with the nicer photos.`,`Choose whichever you saw first.`,`Ask which one a friend likes best.`],`Criteria first, then compare. Otherwise the first or flashiest option wins by default (anchoring).`,9));
+SL.splice(7,0,PQ(3,`"You can't trust her budget proposal. She failed maths at school." What is wrong with this argument?`,[`It attacks the person instead of the proposal itself.`,`It uses too many numbers.`,`It is a false choice.`,`Nothing, it is valid.`],`Her school record says nothing about whether this proposal's numbers add up. Judge the argument, not the arguer.`,6));
+SL.splice(5,0,PQ(2,`Which is the strongest evidence that a new study technique works?`,[`Students randomly split into two groups, one using the technique, and results compared.`,`A popular student says it changed their life.`,`The technique's inventor says it works.`,`Thousands of likes on a video about it.`],`Fair comparisons rule out other explanations. Stories, authority and popularity don't.`,4));
+SL.splice(3,0,PQ(1,`Maya says: "Our team won last year with this plan, so it will win again." What is she assuming?`,[`That nothing important has changed since last year.`,`That her team is the best in the league.`,`That winning is what matters most.`,`That last year's plan was unfair.`],`Players, rivals and rules change. The plan only works again if the situation is similar. Ask what would have to be true.`,2));
+{const T0=SL.reduce((a,s)=>a+s.d,0);SL.forEach(s=>s.d=Math.max(15,Math.round(s.d*600/T0)))}
+S.po={};S.pa={};
+const pqi=s=>{const o=S.po[S.i]=S.po[S.i]||s.pq.o.map((x,i)=>[x,i]).sort(()=>Math.random()-.5),a=S.pa[S.i];return `<p class="t"><b>${s.pq.q}</b></p>`+o.map((x,i)=>`<button class="o${a==null?"":x[1]==0?" ok":a==i?" no":""}" onclick="pa(${i})" ${a==null?"":"disabled"}><b>${"ABCD"[i]}</b><span>${x[0]}</span></button>`).join("")+(a==null?"":`<p class="t">${o[a][1]==0?"Correct. ":"Not quite. "}${s.pq.e}</p>`)};
+function pa(i){S.pa[S.i]=i;document.querySelector(".pq").innerHTML=pqi(SL[S.i]);$$("nb").disabled=false}
+/* ---- COURSE ---- */
+function course(){const s=SL[S.i],last=S.i==SL.length-1;
+const body=s.pq?`<div class="pq">${pqi(s)}</div>`:s.sc?`<p class="t"><b>${s.sc.q}</b></p>${S.rv[S.i]?"":`<button class="b" style="margin-top:22px;align-self:flex-start" onclick="rv(this)">Think, then reveal</button>`}<p class="t" id="an" ${S.rv[S.i]?"":'style="display:none"'}>${s.sc.a}</p>`:s.t.map(x=>`<p class="t">${x}</p>`).join("");
+h(`<div class="bar" id="pg"></div><section class="s">${s.img?`<div class="bg" style="background-image:url(${s.img})"></div>`:""}${hd("Think",'<span id="tm"></span>')}<div class="mid${S.paused?" lk":""}" id="md">${pic(S.i)}${vis(s.vi)}<div class="ghost">${s.g}</div><div class="k">${s.k}</div><h1>${s.h}</h1>${body}</div><div class="nav"><button class="b" onclick="go(-1)" ${S.i?"":"disabled"}>Back</button><button class="b" id="ps" onclick="pz()">${S.paused?"Resume":"Pause"}</button>${last?'<button class="b f" onclick="startAssess()">Done — take assessment</button>':`<button class="b f" id="nb" onclick="go(1)" ${s.pq&&S.pa[S.i]==null?"disabled":""}>Next</button>`}</div></section>`);tick(0)}
+function go(n){S.i+=n;S.el=0;course()}
+function rv(b){S.rv[S.i]=1;b.remove();$$("an").style.display="block"}
+function pz(){S.paused=!S.paused;$$("md").classList.toggle("lk",!!S.paused);$$("ps").textContent=S.paused?"Resume":"Pause"}
+function tick(d){if(S.mode!="c")return;if(!S.paused)S.el+=d;const T=SL.reduce((a,x)=>a+x.d,0),e=SL.slice(0,S.i).reduce((a,x)=>a+x.d,0)+Math.min(S.el,SL[S.i].d);
+if($$("tm"))$$("tm").textContent=f(e)+" / "+f(T);if($$("pg"))$$("pg").style.width=e/T*100+"%"}
+setInterval(()=>tick(1),1000);
+/* ---- ASSESSMENT (only reachable from the final course screen) ---- */
+function startAssess(){send("course_complete",{});S.mode="a";S.q=0;S.mc=[];S.sub=[];S.Q=MC.map(q=>({...q,o:q.o.map((x,i)=>[x,i]).sort(()=>Math.random()-.5)}));$.scrollTop=0;quiz()}
+function quiz(){const n=S.q,N=MC.length+SUB.length,mc=n<MC.length,last=n==N-1;let b;
+if(mc){const q=S.Q[n];b=`<h2>${q.q}</h2>`+q.o.map((o,i)=>`<button class="o${S.mc[n]===i?" on":""}" onclick="pick(${i})"><b>${"ABCD"[i]}</b><span>${o[0]}</span></button>`).join("")}
+else{const j=n-MC.length;b=`<h2>${SUB[j].q}</h2><textarea placeholder="Write your answer and explain your reasoning." oninput="S.sub[${j}]=this.value;$$('wc').textContent=W(this.value)+' words'">${esc(S.sub[j]||"")}</textarea><div class="k" id="wc" style="margin-top:8px">${W(S.sub[j]||"")} words</div>`}
+h(`<div class="bar" style="width:${(n+1)/N*100}%"></div><section class="s">${hd("Assessment · "+(mc?"Multiple choice · 5 marks":"Written · 10 marks"),(n+1)+" / "+N)}<div class="mid q">${b}</div><div class="nav"><button class="b" onclick="nx(-1)" ${n?"":"disabled"}>Back</button>${last?'<button class="b f" onclick="finish()">Submit assessment</button>':'<button class="b f" onclick="nx(1)">Next</button>'}</div></section>`)}
+function pick(i){S.mc[S.q]=i;document.querySelectorAll(".o").forEach((e,k)=>e.classList.toggle("on",k==i))}
+function nx(d){S.q+=d;quiz()}
+function score(){const c={};for(const k in CAT)c[k]=[0,0];
+S.Q.forEach((q,n)=>{c[q.c][1]+=5;const s=S.mc[n];if(s!=null&&q.o[s][1]===0)c[q.c][0]+=5});
+SUB.forEach((q,j)=>{c[q.c][1]+=10;const a=(S.sub[j]||"").trim();let p=0;q.r.forEach(x=>{if(x[0].test(a))p+=x[1]});if(W(a)<25)p*=.4;c[q.c][0]+=Math.round(Math.min(p,10))});
+const p={};let t=0;for(const k in c){p[k]=Math.round(c[k][0]/c[k][1]*100);t+=c[k][0]}return{p,t}}
+function finish(){S.res=score();S.mode="r";send("assessment",{score:S.res.t,cats:S.res.p,mc:S.Q.map((q,n)=>S.mc[n]==null?null:q.o[S.mc[n]][1]===0),written:SUB.map((q,j)=>S.sub[j]||"")});rate()}
+/* ---- RATING GATE: the score is not in the page until a rating is submitted ---- */
+function rate(){h(`<section class="s">${hd("Assessment complete","")}<div class="mid q"><div class="k">Your result is ready</div><h1 class="lk">?? / 100</h1><p class="t">Before revealing your result, please rate the course. This is about the course experience, not your score.</p><div class="k" style="margin-top:30px">How would you rate this course?</div><div class="rt">${Array.from({length:10},(_,i)=>`<button class="b" onclick="rt(${i+1},this)">${i+1}</button>`).join("")}</div><textarea id="cm" placeholder="Optional: what was useful? What would you change?" style="margin-top:18px;min-height:80px"></textarea><div class="k" style="margin:18px 0 8px">Interested in a longer paid course?</div><div>${["Yes","Maybe","No"].map(v=>`<button class="b" style="margin-right:8px" onclick="pi('${v}',this)">${v}</button>`).join("")}</div></div><div class="nav"><span></span><button class="b f" id="sb" disabled onclick="sendRate()">Reveal my result</button></div></section>`)}
+function rt(n,b){S.rating=n;b.parentNode.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x==b));$$("sb").disabled=false}
+function pi(v,b){S.pi=v;b.parentNode.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x==b))}
+function sendRate(){send("rating",{rating:S.rating,comment:$$("cm").value,paidInterest:S.pi||"",score:S.res.t});result()}
+/* ---- RESULT ---- */
+function result(){const r=S.res,ks=Object.keys(CAT),tp=ks.slice().sort((a,b)=>r.p[b]-r.p[a]).slice(0,2),L=r.t<40?"Emerging":r.t<60?"Developing":r.t<80?"Solid":r.t<90?"Strong":"Advanced",fl=[...new Set(tp.flatMap(k=>CAR[k]))].slice(0,7);S.mode="x";
+h(`<section class="s">${hd("Critical Thinking &amp; Execution Assessment","")}<div class="mid q"><div class="k">Overall score</div><h1>${r.t} / 100</h1><div class="k" style="margin-top:16px">Level: ${L}</div>${ks.map(k=>`<div class="r"><span>${CAT[k]}</span><span>${r.p[k]} / 100</span></div><div class="tr"><i style="width:${r.p[k]}%"></i></div>`).join("")}
+<p class="t">Your strongest areas here were <b>${tp.map(k=>CAT[k]).join("</b> and <b>")}</b>. This is a snapshot of how you performed on these 15 questions. It is an educational tool from an independent project, not scientifically validated, and written answers are marked by a simple keyword rubric, so treat the score as approximate.</p>
+<div class="k" style="margin-top:36px">Career exploration</div><p class="t" style="margin-top:0">Based on your demonstrated performance, you may want to explore fields involving analytical reasoning, structured problem solving and decision-making, such as <b>${fl.join("</b>, <b>")}</b>. These are ideas to explore, not career predictions or a professional career diagnosis.</p>
+<div style="margin-top:36px"><input class="in" id="nm" placeholder="Your full name (for the certificate)" maxlength="60"></div></div><div class="nav"><span></span><button class="b f" onclick="cert()">Get my certificate</button></div></section>`)}
+/* ---- CERTIFICATE (Print / Save as PDF) ---- */
+function cert(){const nm=$$("nm").value.trim();if(nm.length<2){$$("nm").focus();return}S.name=nm;S.cid=S.cid||"THINK-"+new Date().getFullYear()+"-"+Math.random().toString(36).slice(2,8).toUpperCase();send("certificate",{cid:S.cid,score:S.res.t});
+const d=new Date().toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"});
+h(`<section class="s"><div class="cert"><div class="x">${esc(CFG.ISSUER)}</div><div class="x" style="margin-top:28px;color:#15151a">Certificate of Completion</div><p>This certifies that</p><h3>${esc(nm)}</h3><p>has successfully completed the Critical Thinking &amp; Execution Course and its accompanying assessment.</p><p style="font-size:22px;color:#15151a">Assessment score: ${S.res.t} / 100</p><p style="font-size:13px">Date: ${d}</p><div class="cid">ID ${S.cid}</div><small>This is a certificate of completion and assessment issued by an independent educational project. It is not an accredited qualification.</small></div><div class="nav no"><button class="b" onclick="result()">Back</button><button class="b f" onclick="print()">Print / save as PDF</button></div></section>`)}
+course();send("start",{});
+</script></body></html>
